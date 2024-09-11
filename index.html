@@ -73,7 +73,8 @@
         /* Content Layout */
         .content {
             display: flex;
-            justify-content: space-between; /* Adjusted for layout */
+            flex-direction: column;
+            align-items: center;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -82,8 +83,9 @@
         }
 
         .text-box {
-            flex: 2;
-            margin-right: 20px;
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .text-box h2 {
@@ -98,8 +100,9 @@
         }
 
         .image-box {
-            flex: 1;
+            width: 100%;
             text-align: right;
+            margin-top: 20px; /* Ensures there's space above the image */
         }
 
         .image-box img {
@@ -151,7 +154,7 @@
             </div>
         </div>
 
-        <!-- Text Box on the Left -->
+        <!-- Text Box Below the Gallery -->
         <div class="text-box">
             <h2>Kacperniszon Love Story</h2>
             <p>W grze Kacperniszon: Love Story wcielasz się w Kacpra, zwykłego chłopaka, który wiedzie nudne życie, dopóki pewnego dnia podczas zakupów w Lidlu nie wydarza się coś niezwykłego. Przypadkowe spotkanie z Suisei – Znaną Japońską Vtuberką, która przez niezdarność wpada na Kacpra i rozlewa jego świeżo wzięte mleko, rozpoczynając wyjątkową opowieść miłosną.</p>
