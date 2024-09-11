@@ -36,18 +36,25 @@
 
         .gallery .main-image {
             width: 100%;
-            max-width: 640px; /* Adjusted to make the image smaller */
+            max-width: 640px;
             height: auto;
-            aspect-ratio: 16 / 9; /* Maintains a 16:9 aspect ratio */
+            aspect-ratio: 16 / 9;
             margin: 0 auto;
             border-radius: 8px;
             overflow: hidden;
+            position: relative;
         }
 
         .gallery .main-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 1;
+            transition: opacity 1s ease-in-out; /* Transition for fade effect */
+        }
+
+        .gallery .main-image img.fade-out {
+            opacity: 0;
         }
 
         .gallery .thumbnails {
@@ -196,13 +203,17 @@
         const mainImage = document.getElementById('mainImage');
         
         function changeImage(src) {
-            mainImage.src = src;
-            currentIndex = images.indexOf(src);
+            mainImage.classList.add('fade-out'); // Apply fade-out effect
+
+            setTimeout(() => {
+                mainImage.src = src;
+                mainImage.classList.remove('fade-out'); // Remove fade-out and allow fade-in
+            }, 1000); // Timeout should match the transition duration
         }
         
         function nextImage() {
             currentIndex = (currentIndex + 1) % images.length;
-            mainImage.src = images[currentIndex];
+            changeImage(images[currentIndex]);
         }
         
         setInterval(nextImage, 5000);
