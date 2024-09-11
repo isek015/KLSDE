@@ -4,46 +4,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample HTML Page</title>
+    <title>Sample Page with Banner and Layout</title>
+    <style>
+        /* General Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Banner Styles */
+        .banner {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .banner img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Content Layout */
+        .content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+
+        .text-box {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .text-box h2 {
+            margin-bottom: 10px;
+        }
+
+        .text-box p {
+            line-height: 1.6;
+        }
+
+        .image-box {
+            flex: 1;
+            text-align: right;
+        }
+
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto;
+            padding: 15px;
+            text-align: center;
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
+    <!-- Image Banner -->
+    <div class="banner">
+        <img src="banner.jpg" alt="Top Banner Image">
+    </div>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Content Section -->
+    <div class="content">
+        <!-- Text Box on the Left -->
+        <div class="text-box">
+            <h2>Welcome to Our Website</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dignissim metus eget felis vulputate fermentum. Cras dapibus est a magna facilisis tempus. Integer eget orci sed arcu scelerisque vehicula.</p>
+        </div>
 
-    <section id="home">
-        <h2>Home Section</h2>
-        <p>This is the home section of the page.</p>
-    </section>
+        <!-- Image on the Right -->
+        <div class="image-box">
+            <img src="image.jpg" alt="Image on the Right">
+        </div>
+    </div>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>Here’s some information about us.</p>
-    </section>
-
-    <section id="services">
-        <h2>Our Services</h2>
-        <p>We offer a wide range of services to our clients.</p>
-    </section>
-
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Feel free to reach out to us for more information.</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 My Website</p>
-    </footer>
+    <!-- Download Button -->
+    <a href="file.zip" class="download-btn">Download Now</a>
 
 </body>
 </html>
