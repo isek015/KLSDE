@@ -50,7 +50,7 @@
             height: 100%;
             object-fit: cover;
             opacity: 1;
-            transition: opacity 1s ease-in-out; /* Transition for fade effect */
+            transition: opacity 0.3s ease-in-out; /* Reduced to 0.3s */
         }
 
         .gallery .main-image img.fade-out {
@@ -208,7 +208,7 @@
             setTimeout(() => {
                 mainImage.src = src;
                 mainImage.classList.remove('fade-out'); // Remove fade-out and allow fade-in
-            }, 1000); // Timeout should match the transition duration
+            }, 300); // Timeout now matches the 0.3s transition duration
         }
         
         function nextImage() {
