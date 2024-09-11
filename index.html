@@ -240,10 +240,10 @@
                 suiseiIndex = (suiseiIndex + 1) % suiseiImages.length;
                 suiseiImage.src = suiseiImages[suiseiIndex];
                 suiseiImage.classList.remove('fade-out');
-            }, 300); // Matches the 0.3s transition duration
+            }, 1000); // Matches the 0.3s transition duration
         }
 
-        setInterval(nextSuiseiImage, 5000);
+        setInterval(nextSuiseiImage, 8000);
     </script>
 
 </body>
