@@ -30,25 +30,43 @@
 
         /* Gallery Styles */
         .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px auto;
-            max-width: 1200px;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        .gallery img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
+        .gallery .main-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
             border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .gallery .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .gallery .thumbnails img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .gallery .thumbnails img:hover {
+            opacity: 0.7;
         }
 
         /* Content Layout */
         .content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -57,8 +75,7 @@
         }
 
         .text-box {
-            flex: 1;
-            margin-right: 20px;
+            width: 100%;
             margin-bottom: 20px;
         }
 
@@ -74,7 +91,7 @@
         }
 
         .image-box {
-            flex: 1;
+            width: 100%;
             text-align: right;
         }
 
@@ -111,17 +128,22 @@
         <img src="sources/banner.png" alt="Top Banner Image">
     </div>
 
-    <!-- Image Gallery -->
-    <div class="gallery">
-        <img src="sources/gallery/img1.png" alt="Gallery Image 1">
-        <img src="sources/gallery/img2.png" alt="Gallery Image 2">
-        <img src="sources/gallery/img3.png" alt="Gallery Image 3">
-        <img src="sources/gallery/img4.png" alt="Gallery Image 4">
-        <img src="sources/gallery/img5.png" alt="Gallery Image 5">
-    </div>
-
     <!-- Content Section -->
     <div class="content">
+        <!-- Gallery Section -->
+        <div class="gallery">
+            <div class="main-image">
+                <img id="mainImage" src="sources/gallery/img1.png" alt="Main Gallery Image">
+            </div>
+            <div class="thumbnails">
+                <img src="sources/gallery/img1.png" alt="Thumbnail 1" onclick="changeImage('sources/gallery/img1.png')">
+                <img src="sources/gallery/img2.png" alt="Thumbnail 2" onclick="changeImage('sources/gallery/img2.png')">
+                <img src="sources/gallery/img3.png" alt="Thumbnail 3" onclick="changeImage('sources/gallery/img3.png')">
+                <img src="sources/gallery/img4.png" alt="Thumbnail 4" onclick="changeImage('sources/gallery/img4.png')">
+                <img src="sources/gallery/img5.png" alt="Thumbnail 5" onclick="changeImage('sources/gallery/img5.png')">
+            </div>
+        </div>
+
         <!-- Text Box on the Left -->
         <div class="text-box">
             <h2>Kacperniszon Love Story</h2>
@@ -135,7 +157,7 @@
 
             <p><strong>Kacperniszon: Love Story</strong> – wejdź w świat pełen emocji, gdzie przypadkowe spotkanie może odmienić całe życie.</p>
             
-            <!-- Download Button (Now below the text) -->
+            <!-- Download Button -->
             <a href="file.zip" class="download-btn">Download Now</a>
         </div>
 
@@ -144,6 +166,31 @@
             <img src="sources/suisei.png" alt="Image on the Right">
         </div>
     </div>
+
+    <script>
+        // JavaScript for Gallery
+        let currentIndex = 0;
+        const images = [
+            'sources/gallery/img1.png',
+            'sources/gallery/img2.png',
+            'sources/gallery/img3.png',
+            'sources/gallery/img4.png',
+            'sources/gallery/img5.png'
+        ];
+        const mainImage = document.getElementById('mainImage');
+        
+        function changeImage(src) {
+            mainImage.src = src;
+            currentIndex = images.indexOf(src);
+        }
+        
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            mainImage.src = images[currentIndex];
+        }
+        
+        setInterval(nextImage, 5000);
+    </script>
 
 </body>
 </html>
