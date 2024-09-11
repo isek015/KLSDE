@@ -138,6 +138,11 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+            transition: opacity 0.3s ease-in-out; /* Fade effect for suisei images */
+        }
+
+        .right-section img.fade-out {
+            opacity: 0;
         }
     </style>
 </head>
@@ -186,7 +191,7 @@
 
         <!-- Right Section: Suisei Image -->
         <div class="right-section">
-            <img src="sources/suisei.png" alt="Suisei Image on the Right">
+            <img id="suiseiImage" src="sources/suisei0.png" alt="Suisei Image on the Right">
         </div>
     </div>
 
@@ -217,6 +222,28 @@
         }
         
         setInterval(nextImage, 5000);
+
+        // JavaScript for Suisei Image rotation
+        let suiseiIndex = 0;
+        const suiseiImages = [
+            'sources/suisei0.png',
+            'sources/suisei1.png',
+            'sources/suisei2.png',
+            'sources/suisei3.png'
+        ];
+        const suiseiImage = document.getElementById('suiseiImage');
+
+        function nextSuiseiImage() {
+            suiseiImage.classList.add('fade-out');
+
+            setTimeout(() => {
+                suiseiIndex = (suiseiIndex + 1) % suiseiImages.length;
+                suiseiImage.src = suiseiImages[suiseiIndex];
+                suiseiImage.classList.remove('fade-out');
+            }, 300); // Matches the 0.3s transition duration
+        }
+
+        setInterval(nextSuiseiImage, 5000);
     </script>
 
 </body>
