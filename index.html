@@ -155,7 +155,36 @@
             opacity: 0;
         }
 
-        /* System Requirements Table */
+        /* System Requirements Table and Image */
+        .specs-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .requirements-table {
+            flex: 1;
+            margin-right: 20px; /* Space between table and image */
+        }
+
+        .specs-image {
+            flex-shrink: 0;
+        }
+
+        .specs-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            width: 300px; /* Adjust the size of the image here */
+        }
+
+        h1 {
+            text-align: center;
+            color: #66c0f4;
+        }
+
         .requirements-table {
             width: 100%;
             max-width: 800px;
@@ -184,10 +213,6 @@
             background-color: #1b2838;
         }
 
-        h1 {
-            text-align: center;
-            color: #66c0f4;
-        }
     </style>
 </head>
 <body>
@@ -226,103 +251,62 @@
 
                 <p>Przygotuj się na wzruszającą historię pełną humoru, romantycznych momentów i nieoczekiwanych zwrotów akcji. Los Kacpra jest w Twoich rękach – spraw, by jego historia miłosna zakończyła się szczęśliwie!</p>
 
-                <p><strong>Kacperniszon: Love Story</strong> – wejdź w świat pełen emocji, gdzie przypadkowe spotkanie może odmienić całe życie.</p>
-                <h2>Co nowego w wersji Deluxe?</h2>
-                <p>• Rework Spriteów.</p>
-                <p>• Nowy ending.</p>
-                <p>• Poprawione animacje.</p>
-                <p>• Poprawiona fabuła.</p>
-                
-                <!-- Download Button -->
-                <a href="https://i.pinimg.com/originals/78/ba/a2/78baa2e81a730433b691204ae40ccc83.gif" class="download-btn">Już wkrótce!</a>
+                <a href="sources/game.zip" download class="download-btn">Pobierz grę</a>
             </div>
-
-            <!-- System Requirements Table -->
-            <h1>Wymagania Systemowe</h1>
-            <table class="requirements-table">
-                <tr>
-                    <th>Minimalne Wymagania</th>
-                    <th>Zalecane Wymagania</th>
-                </tr>
-                <tr>
-                    <td>Procesor: Intel Core i3 2.4GHz</td>
-                    <td>Procesor: Intel Core i5 3.2GHz</td>
-                </tr>
-                <tr>
-                    <td>Pamięć RAM: 2GB</td>
-                    <td>Pamięć RAM: 4GB</td>
-                </tr>
-                <tr>
-                    <td>Karta Graficzna: NVIDIA GeForce GTX 960</td>
-                    <td>Karta Graficzna: NVIDIA GeForce GTX 1050</td>
-                </tr>
-                <tr>
-                    <td>Dysk: 2GB wolnego miejsca</td>
-                    <td>Dysk: 5GB wolnego miejsca</td>
-                </tr>
-                <tr>
-                    <td>System: Windows 7/8/10 64-bit</td>
-                    <td>System: Windows 10 64-bit</td>
-                </tr>
-            </table>
         </div>
 
         <!-- Right Section: Suisei Image -->
         <div class="right-section">
-            <img id="suiseiImage" src="sources/suisei0.png" alt="Suisei Image on the Right">
+            <img id="rightImage" src="sources/suisei.png" alt="Suisei Image">
         </div>
     </div>
 
-    <script>
-        // JavaScript for Gallery
-        let currentIndex = 0;
-        const images = [
-            'sources/gallery/img1.jpg',
-            'sources/gallery/img2.jpg',
-            'sources/gallery/img3.jpg',
-            'sources/gallery/img4.jpg',
-            'sources/gallery/img5.jpg'
-        ];
-        const mainImage = document.getElementById('mainImage');
-        
-        function changeImage(src) {
-            mainImage.classList.add('fade-out'); // Apply fade-out effect
+    <!-- System Requirements Table and Image -->
+    <h1>Wymagania Systemowe</h1>
+    <div class="specs-container">
+        <table class="requirements-table">
+            <tr>
+                <th>Minimalne Wymagania</th>
+                <th>Zalecane Wymagania</th>
+            </tr>
+            <tr>
+                <td>Procesor: Intel Core i3 2.4GHz</td>
+                <td>Procesor: Intel Core i5 3.2GHz</td>
+            </tr>
+            <tr>
+                <td>Pamięć RAM: 2GB</td>
+                <td>Pamięć RAM: 4GB</td>
+            </tr>
+            <tr>
+                <td>Karta Graficzna: NVIDIA GeForce GTX 960</td>
+                <td>Karta Graficzna: NVIDIA GeForce GTX 1050</td>
+            </tr>
+            <tr>
+                <td>Dysk: 2GB wolnego miejsca</td>
+                <td>Dysk: 5GB wolnego miejsca</td>
+            </tr>
+            <tr>
+                <td>System: Windows 7/8/10 64-bit</td>
+                <td>System: Windows 10 64-bit</td>
+            </tr>
+        </table>
 
+        <!-- Specs Image -->
+        <div class="specs-image">
+            <img src="sources/specs.png" alt="Specs Image">
+        </div>
+    </div>
+
+    <!-- JavaScript for gallery image change -->
+    <script>
+        function changeImage(src) {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.classList.add('fade-out');
             setTimeout(() => {
                 mainImage.src = src;
-                mainImage.classList.remove('fade-out'); // Remove fade-out and allow fade-in
-            }, 300); // Timeout now matches the 0.3s transition duration
+                mainImage.classList.remove('fade-out');
+            }, 300); /* Delay for 300ms */
         }
-        
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            changeImage(images[currentIndex]);
-        }
-        
-        setInterval(nextImage, 5000);
-
-        // JavaScript for Suisei Image rotation
-        let suiseiIndex = 0;
-        const suiseiImages = [
-            'sources/suisei0.png',
-            'sources/suisei1.png',
-            'sources/suisei2.png',
-            'sources/suisei3.png',
-            'sources/suisei4.png'
-        ];
-        const suiseiImage = document.getElementById('suiseiImage');
-
-        function nextSuiseiImage() {
-            suiseiImage.classList.add('fade-out');
-
-            setTimeout(() => {
-                suiseiIndex = (suiseiIndex + 1) % suiseiImages.length;
-                suiseiImage.src = suiseiImages[suiseiIndex];
-                suiseiImage.classList.remove('fade-out');
-            }, 500); // Matches the 0.3s transition duration
-        }
-
-        setInterval(nextSuiseiImage, 7000);
     </script>
 
 </body>
