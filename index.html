@@ -60,7 +60,7 @@
             height: 100%;
             object-fit: cover;
             opacity: 1;
-            transition: opacity 0.3s ease-in-out; /* Reduced to 0.3s */
+            transition: opacity 0.3s ease-in-out;
         }
 
         .gallery .main-image img.fade-out {
@@ -148,18 +148,26 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            transition: opacity 0.3s ease-in-out; /* Fade effect for suisei images */
+            transition: opacity 0.3s ease-in-out;
         }
 
         .right-section img.fade-out {
             opacity: 0;
         }
 
-        /* System Requirements Table */
+        /* System Requirements Container */
+        .requirements-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
         .requirements-table {
+            flex: 2; /* Ensure the table takes more space */
+            margin-right: 20px; /* Spacing between table and image */
             width: 100%;
             max-width: 800px;
-            margin: 20px auto;
             border-collapse: collapse;
             background-color: #2a475e;
         }
@@ -184,29 +192,12 @@
             background-color: #1b2838;
         }
 
-        h1 {
-            text-align: center;
-            color: #66c0f4;
-        }
-        .requirements-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-top: 20px;
-        }
-
-        .requirements-table {
-            flex: 3; /* Ensure the table takes more space */
-        }
-        
         .specs-image {
-            flex: 1;
+            flex: 1; /* Ensure the image takes less space */
             max-width: 200px; /* Adjust this to your preferred width */
             height: auto;
-            margin-left: 20px;
             border-radius: 8px;
         }
-
     </style>
 </head>
 <body>
@@ -256,9 +247,9 @@
                 <a href="https://i.pinimg.com/originals/78/ba/a2/78baa2e81a730433b691204ae40ccc83.gif" class="download-btn">Już wkrótce!</a>
             </div>
 
-            <!-- System Requirements Table -->
-            <div>
-                <h1>Wymagania Systemowe</h1>
+            <!-- System Requirements Section -->
+            <div class="requirements-container">
+                <!-- System Requirements Table -->
                 <table class="requirements-table">
                     <tr>
                         <th>Minimalne Wymagania</th>
@@ -285,7 +276,7 @@
                         <td>System: Windows 10 64-bit</td>
                     </tr>
                 </table>
-                <!-- Add the specs.png image here -->
+                <!-- Specs Image -->
                 <img class="specs-image" src="sources/specs.png" alt="Specifications Image">
             </div>
         </div>
