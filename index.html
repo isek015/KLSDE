@@ -188,6 +188,25 @@
             text-align: center;
             color: #66c0f4;
         }
+        .requirements-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 20px;
+        }
+
+        .requirements-table {
+            flex: 3; /* Ensure the table takes more space */
+        }
+        
+        .specs-image {
+            flex: 1;
+            max-width: 200px; /* Adjust this to your preferred width */
+            height: auto;
+            margin-left: 20px;
+            border-radius: 8px;
+        }
+
     </style>
 </head>
 <body>
@@ -265,6 +284,8 @@
                     <td>System: Windows 10 64-bit</td>
                 </tr>
             </table>
+            <!-- Add the specs.png image here -->
+            <img class="specs-image" src="sources/specs.png" alt="Specifications Image">
         </div>
 
         <!-- Right Section: Suisei Image -->
