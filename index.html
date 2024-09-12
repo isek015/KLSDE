@@ -162,16 +162,18 @@
             align-items: flex-start;
             margin-top: 20px;
             margin-left: 80px;
+            width: 100%; /* Ensure the container uses full width */
         }
-
+        
         .requirements-table {
-            flex: 2; /* Ensure the table takes more space */
-            margin-right: 20px; /* Spacing between table and image */
-            width: 150%;
-            max-width: 1200px;
+            flex: 2;
+            margin-right: 20px;
+            width: 100%; /* Adjust to fit within the parent container */
+            max-width: 1000px; /* Set max width as needed */
             border-collapse: collapse;
             background-color: #2a475e;
         }
+
 
         .requirements-table th, .requirements-table td {
             border: 1px solid #66c0f4;
