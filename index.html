@@ -335,7 +335,7 @@
     </div>
 
     <script>
-                // Countdown Timer JavaScript
+        // Countdown Timer JavaScript
         const countdownElement = document.getElementById('countdownTimer');
         const countdownDate = new Date("November 9, 2023 19:00:00 GMT+1"); // Adjust to Polish time (CET)
 
@@ -358,6 +358,7 @@
         }
 
         const countdownInterval = setInterval(updateCountdown, 1000);
+
         // JavaScript for Gallery
         let currentIndex = 0;
         const images = [
@@ -368,7 +369,7 @@
             'sources/gallery/img5.jpg'
         ];
         const mainImage = document.getElementById('mainImage');
-        
+
         function changeImage(src) {
             mainImage.classList.add('fade-out'); // Apply fade-out effect
 
@@ -377,12 +378,12 @@
                 mainImage.classList.remove('fade-out'); // Remove fade-out and allow fade-in
             }, 300); // Timeout now matches the 0.3s transition duration
         }
-        
+
         function nextImage() {
             currentIndex = (currentIndex + 1) % images.length;
             changeImage(images[currentIndex]);
         }
-        
+
         setInterval(nextImage, 5000);
 
         // JavaScript for Suisei Image rotation
@@ -407,7 +408,6 @@
         }
 
         setInterval(nextSuiseiImage, 7000);
-        
     </script>
 
 </body>
