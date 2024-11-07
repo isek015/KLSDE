@@ -25,7 +25,27 @@
             background: url('sources/bg.jpg') no-repeat center center fixed;
             background-size: cover;
         }
+        /* Timer Styles */
+        #countdownTimer {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            z-index: 1000;
+            animation: rgb-color 3s infinite;
+        }
 
+        @keyframes rgb-color {
+            0% { color: red; }
+            33% { color: green; }
+            66% { color: blue; }
+            100% { color: red; }
+        }
         /* Banner Styles */
         .banner {
             text-align: center;
@@ -225,6 +245,7 @@
     </style>
 </head>
 <body>
+    <div id="countdownTimer"></div>
 
     <!-- Image Banner -->
     <div class="banner">
@@ -314,6 +335,29 @@
     </div>
 
     <script>
+                // Countdown Timer JavaScript
+        const countdownElement = document.getElementById('countdownTimer');
+        const countdownDate = new Date("November 9, 2023 19:00:00 GMT+1"); // Adjust to Polish time (CET)
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            if (distance < 0) {
+                countdownElement.innerHTML = "The event has started!";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
         // JavaScript for Gallery
         let currentIndex = 0;
         const images = [
@@ -363,6 +407,7 @@
         }
 
         setInterval(nextSuiseiImage, 7000);
+        
     </script>
 
 </body>
