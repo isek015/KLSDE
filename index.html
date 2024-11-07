@@ -337,14 +337,14 @@
     <script>
         // Countdown Timer JavaScript
         const countdownElement = document.getElementById('countdownTimer');
-        const countdownDate = new Date("November 9, 2023 19:00:00 GMT+1"); // Adjust to Polish time (CET)
+        const countdownDate = new Date("November 9, 2024 19:00:00 GMT+1"); // Adjust to Polish time (CET)
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = countdownDate - now;
 
             if (distance < 0) {
-                countdownElement.innerHTML = "The event has started!";
+                countdownElement.innerHTML = "OFICJALNA PREMIERA GRY!";
                 clearInterval(countdownInterval);
                 return;
             }
